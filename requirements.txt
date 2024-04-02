@@ -2,4 +2,4 @@ fastapi
 uvicorn
 python-multipart
 boto3
-PIL
+Pillow
