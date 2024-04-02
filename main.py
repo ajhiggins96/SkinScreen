@@ -38,23 +38,30 @@ async def classify(request: Request, prediction: str = None, confidence: float =
 
 @app.post('/submit/')
 async def submit_file(file: UploadFile | None):
-    data = await file.read()
+    if not file:
+        return Response(
+            content="No image file uploaded", 
+            status_code=400, 
+            headers={"Location": f"/classify/"}
+        )
+    else:
+        data = await file.read()
 
-    print(type(data))
+        print(type(data))
 
-    result = predict(data)
+        result = predict(data)
 
-    print(result)
+        print(result)
 
-    prediction = result['predicted_label']
-    #TODO: this is not necessarily confidence, just class probability
-    confidence = round(result['probabilities'][result['labels'].index(prediction)]*100, 1)
+        prediction = result['predicted_label']
+        #TODO: this is not necessarily confidence, just class probability
+        confidence = round(result['probabilities'][result['labels'].index(prediction)]*100, 1)
 
-    return Response(
-        content="File uploaded successfully", 
-        status_code=302, 
-        headers={"Location": f"/classify/?prediction={prediction}&confidence={confidence}"}
-    )
+        return Response(
+            content="File uploaded successfully", 
+            status_code=302, 
+            headers={"Location": f"/classify/?prediction={prediction}&confidence={confidence}"}
+        )
 
 
 def predict(image_data):
