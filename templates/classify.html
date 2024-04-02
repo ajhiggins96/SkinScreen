@@ -10,25 +10,29 @@
 
 <body>
 
-    <p>Upload or capture a new image.</p>
-
-    <form method="POST" action="http://localhost:8000/upload/" enctype="multipart/form-data">
-        <div>
-            <label for="upload">Upload an image:</label>
-            <input type="file" id="upload" name="file" accept="image/*">
-        </div>
-        <!--
-        <div>
-        <label for="capture">Capture an image:</label>
-        <input type="file" id="capture" name="filename" accept="image/*" capture="environment">
-        </div>
-        -->
-        <input type="submit" value="Submit">
-    </form>
+    <h3>Upload and image or take a new one</h3>
 
     <div>
-        <p>Results:</p>
-        <p>{{result}}</p>
+        <form method="POST" action="http://localhost:8000/upload/" enctype="multipart/form-data">
+            <div>
+                <label for="upload">Upload an image:</label>
+                <input type="file" id="upload" name="file" accept="image/*">
+            </div>
+            <div>
+                <label for="capture">Take a new image (mobile only):</label>
+                <input type="file" id="capture" name="filename" accept="image/*" capture="environment">
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div>
+        <h3>Results:</h3>
+        {% if prediction %}
+        <p>{{ prediction }} ({{ confidence }}% confidence)</p>
+        {% else %}
+        <p>Submit an image to see your results.</p>
+        {% endif %}
     </div>
 
 </body>
