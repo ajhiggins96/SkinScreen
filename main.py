@@ -35,9 +35,11 @@ async def classify(request: Request, prediction: str = None, confidence: float =
     )
 
 
-@app.post('/upload/')
+@app.post('/submit/')
 async def create_upload_file(file: UploadFile | None):
     data = await file.read()
+
+
 
     result = predict(data)
 
