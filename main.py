@@ -3,6 +3,7 @@ from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
 import boto3
 import json
+from PIL import Image
 
 
 app = FastAPI()
@@ -36,10 +37,10 @@ async def classify(request: Request, prediction: str = None, confidence: float =
 
 
 @app.post('/submit/')
-async def create_upload_file(file: UploadFile | None):
+async def submit_file(file: UploadFile | None):
     data = await file.read()
 
-
+    print(type(data))
 
     result = predict(data)
 
