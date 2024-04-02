@@ -1,9 +1,8 @@
-from fastapi import FastAPI, Request, Response, UploadFile
+from fastapi import FastAPI, Request, Response, UploadFile, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.templating import Jinja2Templates
 import boto3
 import json
-from PIL import Image
 
 
 app = FastAPI()
@@ -42,7 +41,7 @@ async def predict_api(file: UploadFile | None = None):
 
     image_data = await file.read()
 
-    # Redirect to /classify if no image was uploaded before submitting
+    # Redirect back to /classifier if no image was uploaded before submitting
     if not image_data:
         return Response(
             content="No image file uploaded", 
@@ -51,12 +50,15 @@ async def predict_api(file: UploadFile | None = None):
         )
     
     # Sagemaker predict API call
-    sagemaker_response = sagemaker_runtime.invoke_endpoint(
-        EndpointName=SAGEMAKER_ENDPOINT_NAME,
-        ContentType='application/x-image',
-        Accept='application/json;verbose',
-        Body=image_data
-    )
+    try:
+        sagemaker_response = sagemaker_runtime.invoke_endpoint(
+            EndpointName=SAGEMAKER_ENDPOINT_NAME,
+            ContentType='application/x-image',
+            Accept='application/json;verbose',
+            Body=image_data
+        )
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Server error: {e}")
 
     result = json.loads(sagemaker_response['Body'].read().decode())
     print(result)
