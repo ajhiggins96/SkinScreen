@@ -20,57 +20,53 @@ async def favicon():
 
 
 @app.get("/")
-async def home(request: Request):
+async def home_page(request: Request):
     return templates.TemplateResponse(
         request=request, 
         name="home.html"
     )
 
 
-@app.get("/classify")
-async def classify(request: Request, prediction: str = None, confidence: float = None):   
+@app.get("/classifier")
+async def classifier_page(request: Request, prediction: str = None, confidence: float = None):   
     return templates.TemplateResponse(
         request=request,
-        name="classify.html",
+        name="classifier.html",
         context={"prediction": prediction, "confidence": confidence}
     )
 
 
-@app.post('/submit/')
-async def submit_file(file: UploadFile | None = None):
-    data = await file.read()
-    if not data:
+@app.post('/predict/')
+async def predict_api(file: UploadFile | None = None):
+    """Called when the image upload form in /classifier is submitted."""
+
+    image_data = await file.read()
+
+    # Redirect to /classify if no image was uploaded before submitting
+    if not image_data:
         return Response(
             content="No image file uploaded", 
             status_code=303, 
-            headers={"Location": f"/classify/"}
+            headers={"Location": f"/classifier"}
         )
-    else:
-        print(type(data))
-
-        result = predict(data)
-
-        print(result)
-
-        prediction = result['predicted_label']
-        #TODO: this is not necessarily confidence, just class probability
-        confidence = round(result['probabilities'][result['labels'].index(prediction)]*100, 1)
-
-        return Response(
-            content="File uploaded successfully", 
-            status_code=303, 
-            headers={"Location": f"/classify/?prediction={prediction}&confidence={confidence}"}
-        )
-
-
-def predict(image_data):
-    response = sagemaker_runtime.invoke_endpoint(
+    
+    # Sagemaker predict API call
+    sagemaker_response = sagemaker_runtime.invoke_endpoint(
         EndpointName=SAGEMAKER_ENDPOINT_NAME,
         ContentType='application/x-image',
         Accept='application/json;verbose',
         Body=image_data
     )
 
-    result = json.loads(response['Body'].read().decode())
+    result = json.loads(sagemaker_response['Body'].read().decode())
+    print(result)
+    prediction = result['predicted_label']
+    #TODO: this is not necessarily confidence, just class probability
+    confidence = round(result['probabilities'][result['labels'].index(prediction)]*100, 1)
 
-    return result
+    # Redirect to /classify with prediction and confidence as url query parameters to update the HTML
+    return Response(
+        content="File uploaded successfully", 
+        status_code=303, 
+        headers={"Location": f"/classifier?prediction={prediction}&confidence={confidence}"}
+    )
