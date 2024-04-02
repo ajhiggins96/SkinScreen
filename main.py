@@ -37,16 +37,15 @@ async def classify(request: Request, prediction: str = None, confidence: float =
 
 
 @app.post('/submit/')
-async def submit_file(file: UploadFile | None):
-    if not file:
+async def submit_file(file: UploadFile | None = None):
+    data = await file.read()
+    if not data:
         return Response(
             content="No image file uploaded", 
             status_code=400, 
             headers={"Location": f"/classify/"}
         )
     else:
-        data = await file.read()
-
         print(type(data))
 
         result = predict(data)
