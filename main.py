@@ -35,6 +35,14 @@ async def classifier_page(request: Request, prediction: str = None, confidence: 
     )
 
 
+@app.get("/faq")
+async def faq_page(request: Request):   
+    return templates.TemplateResponse(
+        request=request,
+        name="faq.html"
+    )
+
+
 @app.post('/predict/')
 async def predict_api(file: UploadFile | None = None):
     """Called when the image upload form in /classifier is submitted."""
