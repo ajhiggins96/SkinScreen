@@ -9,7 +9,7 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="static/templates")
 
-SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-03-00-29-00-572"
+SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-03-20-44-54-459"
 sagemaker_runtime = boto3.Session().client('sagemaker-runtime')
 
 
