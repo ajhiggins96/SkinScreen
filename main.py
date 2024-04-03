@@ -7,15 +7,15 @@ import json
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+templates = Jinja2Templates(directory="static/templates")
 
-SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-01-22-11-35-898"
+SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-03-00-29-00-572"
 sagemaker_runtime = boto3.Session().client('sagemaker-runtime')
 
 
 @app.get('/favicon.ico', include_in_schema=False)
 async def favicon():
-    return FileResponse('templates/favicon.ico')
+    return FileResponse('static/media/favicon.ico')
 
 
 @app.get("/")
