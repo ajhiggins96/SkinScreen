@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SkinScreen</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source Sans Pro">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        .top-rectangle {
+            margin: auto;
+            width: 100%;
+            height: 100px;
+            /* Adjust height as needed */
+            text-align: center;
+            padding: 20px;
+        }
+
+        .how-it-works-container {
+            margin: auto;
+            display: flex;
+            height: 500px;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            margin: auto;
+            display: flex;
+            height: 500px;
+            padding: 30px;
+        }
+
+        .box {
+            width: 33.33%;
+            /* Adjust width as needed */
+            background-color: rgba(255, 255, 255, 0.5);
+            /* Transparent background */
+            text-align: center;
+            box-sizing: border-box;
+            padding: 20px;
+            border: 5px;
+        }
+
+        .middle-rectangle-title {
+            margin: auto;
+            width: 100%;
+            height: 200px;
+            /* Adjust height as needed */
+            background-color: rgba(0, 74, 255, 0.1);
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .middle-rectangle {
+            margin: auto;
+            width: 100%;
+            height: 300px;
+            /* Adjust height as needed */
+            background-color: rgba(0, 74, 255, 0.1);
+            text-align: center;
+            padding: 70px 0;
+        }
+
+        .why-start-container {
+            display: flex;
+            /* Use flexbox for layout */
+        }
+
+        /* CSS for individual boxes */
+        .why-start-box {
+            width: 50%;
+            /* Each box occupies 1/2 of the container */
+            padding: 40px;
+            box-sizing: border-box;
+            border: 1px #ccc;
+            background-color: rgba(239, 249, 255);
+        }
+
+        .contact-container {
+            margin: auto;
+            height: 200px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation bar with links -->
+    <div class="w3-bar w3-white w3-text-black">
+
+        <h2 class="w3-left w3-tag w3-pale-red w3-round">SkinScreen</h2>
+
+        <a href="privacy" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right"
+            style="margin-top:10px;">PRIVACY POLICY</a>
+
+        <a href="faq" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right"
+            style="margin-top:10px;">FAQ</a>
+
+        <a href="classifier" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right"
+            style="margin-top:10px;">MODEL</a>
+
+        <a href="" class="w3-hide-small w3-bar-item w3-button w3-mobile w3-medium w3-right"
+            style="margin-top:10px;">HOME</a>
+
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-medium w3-hide-large"
+            style="margin-top:10px;" onclick="myFunction()">&#9776;</a>
+
+    </div>
+
+
+
+    <!-- Image header -->
+
+    <header class="w3-display-container w3-wide" style="padding-bottom:32px;" id="Home">
+
+        <img class="w3-image"
+            src="https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+            alt="test" width="1800" height="1060">
+
+        <div class="w3-display-left w3-padding-large">
+            <h1 class="w3-jumbo w3-text-white">SkinScreen</h1>
+            <h3 class="w3-text-white w3-hide-small"><b>The first step to taking charge of your skin health</b></h3>
+        </div>
+    </header>
+
+
+
+    <!-- Long rectangle on top -->
+    <div class="top-rectangle">
+        <h1 style="font-size: 60px">How it Works</h1>
+    </div>
+
+    <div class="container">
+        <!-- Three boxes -->
+        <div class="box"><b> <img
+                    src="https://images.unsplash.com/photo-1553322378-eb94e5966b0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                    style="width:80%"></br></br>Upload an Image of Your Skin Concern</b></br>
+            <p>You can upload an image of your skin concern. Please check out our “FAQ” page for information on how to
+                take the best image for the most accurate prediction. If you receive a low SPF, you may need to retake
+                the image.</p>
+        </div>
+
+        <div class="box"><img
+                src="https://images.unsplash.com/photo-1553322378-eb94e5966b0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                style="width:80%"></br></br><b>Receive a Classification for Your Skin Concern</b></br>
+            <p>We will run the image through our SkinScreen model to classify your skin concern and provide a SkinScreen
+                Prediction Factor (SPF), which tells you how confident we are in the classification. We do not store
+                this image in any databases.</p>
+        </div>
+        <div class="box"><img
+                src="https://images.unsplash.com/photo-1553322378-eb94e5966b0c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+                style="width:80%"></br></br><b>View Hospitals in Your Area</b></br>
+            <p>If you input a zip code along with your image, we will give you a list of recommended hospitals in your
+                area. These hospitals are not sponsored. We use publicly available data from US News Health on the best
+                hospitals.</p>
+        </div>
+    </div>
+
+    <div class="why-start-container">
+        <!-- Two boxes -->
+        <div class="why-start-box "><img src="{{ url_for('media', path='/holdinghands.jpg') }}" alt="image"
+                style="width:90%"></div>
+        <div class="why-start-box ">
+            <h1 style="font-size: 60px">Why Start With Us?</h1>
+            <p>There is so much skin health information online, and many skin conditions have similar appearances and
+                symptoms, so it can be difficult to narrow down what you need to visit a doctor for and go into the
+                appointment feeling informed. We can help with that. With your SkinScreen classification, you can do
+                more specific research on the identified skin concern, find doctors that specialize in it, and be more
+                informed walking into your appointment.</p>
+        </div>
+    </div>
+
+    <div class="contact-container">
+        <h3><b>Contact Us<b>
+                    <h3>
+                        <p>If you run into any issues with our product or have any questions, please reach out to us at
+                            skinscreeninfo@gmail.com</p>
+    </div>
+
+</body>
+
+</html>
