@@ -12,7 +12,7 @@ from io import StringIO
 app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
-app.mount('/media', StaticFiles(directory='media'), name='media')
+app.mount('/static/', StaticFiles(directory='static/'), name='static')
 
 SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-01-22-11-35-898"
 sagemaker_runtime = boto3.Session().client('sagemaker-runtime')
@@ -20,7 +20,7 @@ sagemaker_runtime = boto3.Session().client('sagemaker-runtime')
 
 @app.get('/favicon.ico', include_in_schema=False)
 async def favicon():
-    return FileResponse('media/favicon.ico')
+    return FileResponse('static/media/favicon.ico')
 
 
 @app.get("/")
