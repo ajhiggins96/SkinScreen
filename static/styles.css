@@ -11,7 +11,7 @@
 .how-it-works-container {
     margin: auto;
     display: flex;
-    height: 500px;
+    height: 400px;
     padding: 10px;
     text-align: center;
 }
@@ -32,6 +32,12 @@
     box-sizing: border-box;
     padding: 20px;
     border: 5px;
+}
+.boximg {
+    max-width: 100px;
+    max-height: 100px;
+    display: block;
+    margin: auto;
 }
 
 .middle-rectangle-title {
@@ -63,12 +69,11 @@
 .why-start-box {
     width: 50%;
     /* Each box occupies 1/2 of the container */
-    padding: 40px;
+    padding: 30px;
     box-sizing: border-box;
     border: 1px #ccc;
     background-color: rgba(239, 249, 255);
 }
-
 .contact-container {
     margin: auto;
     height: 200px;
@@ -78,6 +83,7 @@
 
 /* classifier css */
 .top-container {
+    height: auto;
     display: inline-block;
     justify-content: center;
     /* Horizontally center content */
@@ -85,6 +91,9 @@
     /* Vertically center content */
     background-color: rgba(239, 249, 255);
     padding: 25px;
+}
+.expand-more-info {
+    height: auto;
 }
 
 .rec-container {
