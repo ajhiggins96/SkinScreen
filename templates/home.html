@@ -4,9 +4,7 @@
 <!-- Image header -->
 <header class="w3-display-container w3-wide" style="padding-bottom:32px;" id="Home">
 
-    <img class="w3-image"
-        src="static/media/pexels-jonathan-petersson-421759.jpg"
-        alt="test" width="1800" height="1060">
+    <img class="w3-image" src="static/media/lake.jpg" alt="test" width="1800" height="1060">
 
     <div class="w3-display-left w3-padding-large">
         <h1 class="w3-jumbo w3-text-white">SkinScreen</h1>
@@ -16,42 +14,45 @@
 
 <!-- Long rectangle on top -->
 <div class="top-rectangle">
-    <h1 style="font-size: 60px">How it Works</h1>
+    <h1 style="font-size: 65px">How it Works</h1>
 </div>
 
 <div class="how-it-works-container">
     <!-- Three boxes -->
     <div class="box">
         <div><img src="static/media/camera.png" class="boximg"></br></div>
-        </br><b>Upload an Image of Your Skin Concern</b></br>
-        <p>You can upload an image of your skin concern. Please check out our “FAQ” page for information on how to
+        </br><b style="font-size: 20px">Upload an Image of Your Skin Concern</b></br>
+        <p style="font-size: 18px">You can upload an image of your skin concern. Please check out our “FAQ” page for information on how to
             take the best image for the most accurate prediction. If you receive a low SPF, you may need to retake
             the image.</p>
     </div>
 
-    <div class="box"><img src="static/media/pin.jpeg" class="boximg"></br></br><b>Receive a Classification for Your Skin Concern</b></br>
-        <p>We will run the image through our SkinScreen model to classify your skin concern and provide a SkinScreen
+    <div class="box"><img src="static/media/pin.jpeg" class="boximg"></br></br><b style="font-size: 20px">Receive a Classification for Your Skin Concern</b></br>
+        <p style="font-size: 18px">We will run the image through our SkinScreen model to classify your skin concern and provide a SkinScreen
             Prediction Factor (SPF), which tells you how confident we are in the classification. We do not store
             this image in any databases.</p>
     </div>
-    <div class="box"><img src="static/media/hospital.webp" class="boximg"></br></br><b>View Hospitals in Your Area</b></br>
-        <p>If you input a zip code along with your image, we will give you a list of recommended hospitals in your
+    <div class="box"><img src="static/media/hospital.png" class="boximg"></br></br><b style="font-size: 20px">View Hospitals in Your Area</b></br>
+        <p style="font-size: 18px">If you input a zip code along with your image, we will give you a list of recommended hospitals in your
             area. These hospitals are not sponsored. We use publicly available data from US News Health on the best
             hospitals.</p>
     </div>
 </div>
-
+<div></br></br></div>
 <div class="why-start-container">
-    <!-- Two boxes -->
-    <div class="why-start-box"><img src="static/media/holdinghands.jpg" style="width:80%"></div>
-    <div class="why-start-box">
-        <h1 style="font-size: 60px">Why Start With Us?</h1>
-        <p>There is so much skin health information online, and many skin conditions have similar appearances and
-            symptoms, so it can be difficult to narrow down what you need to visit a doctor for and go into the
-            appointment feeling informed. We can help with that. With your SkinScreen classification, you can do
-            more specific research on the identified skin concern, find doctors that specialize in it, and be more
-            informed walking into your appointment.</p>
-    </div>
+      <div class="why-start-box1">
+          <img src="static/media/holdinghands.jpg" style="width:60%">
+      </div>
+      <div class="why-start-box2">
+          <h1 style="font-size: 60px">Why Start With Us?</h1>
+          <p>There is so much skin health information online, and many skin conditions have similar appearances and
+              symptoms, so it can be difficult to narrow down what you need to visit a doctor for and go into the
+              appointment feeling informed. We can help with that. With your SkinScreen classification, you can do
+              more specific research on the identified skin concern, find doctors that specialize in it, and be more
+              informed walking into your appointment.</p>
+      </div>
+      <div class="why-start-box3">
+      </div>
 </div>
 
 {% endblock %}

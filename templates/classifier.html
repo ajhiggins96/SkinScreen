@@ -5,25 +5,28 @@
 {% block content %}
 
 <div class="top-container">
-
+    <div class="top-spacer"></div>
+    <div class="skinscreen">
+        <img src="static/media/beach.jpeg" alt="beach" class="toned-down-image">
+    </div>
     <div class="title-container">
-        <h1>Start Your Skin Health Journey With Us<h1></br></br>
+        <h1 style="font-size: 50px;">Start Your Skin Health Journey With Us<h1>
+                <h3><i>Sunscreen is a preventative first step to help you take care of your skin health.
+                        </br></br>SkinScreen works in the same way - we’re here to help you take care of your skin
+                        health by helping you become better informed about your skin concern. </br></br>However, you
+                        should also always visit a doctor if you have a serious skin concern.</i></h3>
     </div>
-
-    <div class="message-container">
-        <h3>Upload pictures of your skin condition as specified in our FAQ. Our model will then process your
-            picture, identify and name your problem instantly. It will also guide you about further action.
-    </div>
-    </h3></br>
+    <div class="top-spacer"></div>
 </div>
+<div></br></br></div>
 <div class="full-container">
-    <div class="container-25">
-        <img src="static/media/takingphoto.png" style="width:80%" alt="camera">
-    </div>
-    <div class="container-75">
-        <h3>Upload an Image or Take a New One</h3>
+    <div class="spacer"></div>
+    <div class="container-20">
+        <h3></br>1) Upload an Image or Take a New One</h3>
+
 
         <div>
+            </br></br></br></br>
             <form method="POST" action="/predict/" enctype="multipart/form-data">
                 <div>
                     <label for="upload">Upload an image:</label>
@@ -33,34 +36,38 @@
             </form>
         </div>
 
+    </div>
+    <div class="spacer"></div>
+    <div class="container-40-1">
+
         <div>
-            </br></br>
-            <h3>Review Your Results</h3>
-            <div class="black-box">
-                {% if prediction %}
-                <p>{{ prediction }} <br/>SkinScreen Prediction Factor (SPF): {{ confidence }}% </p>
-
+            <h3 style="justify-content: center"></br>2) Review Your Results</h3></br></br></br>
+            <div class="black-box" {% if prediction %} <p style="text-align: center">{{ prediction }} <br />SkinScreen
+                Prediction Factor (SPF): {{ confidence }}% </p>
                 {% else %}
-                </br>
-                <p>Submit an image to see your results.</p>
-                {% endif %}
-            </div>
-
-            <div class="expand-more-info">
-                <h3>More information about your results</h3>
-                {% if prediction == 'basal cell carcinoma' %}
-                <p>Basal cell carcinoma (BCC) is the most common type of skin cancer. It typically arises from the basal
-                    cells, which are found in the lowest layer of the epidermis, the outermost layer of the skin. Basal cell
-                    carcinoma usually develops on areas of the skin that have been exposed to the sun, such as the face,
-                    head, neck, and upper torso.</p>
-                <p>Basal cell carcinoma often appears as a raised, pink or flesh-colored, translucent bump on the skin. It
-                    may also present as a shiny or pearly nodule, a non-healing sore, or a scar-like area. BCCs can
-                    sometimes ulcerate or bleed, and they may have visible blood vessels or a crusty surface.</p>
-                {% elif prediction == 'nevus' %}
-                <p>moley mole</p>
+                <p style="text-align: center">Submit an image to see your results.</p>
                 {% endif %}
             </div>
         </div>
     </div>
+    <div class="spacer"></div>
+    <div class="container-40-2">
+        <div class="expand-more-info">
+            <h3></br>3) Find more information about your results</h3>
+            {% if prediction == 'basal cell carcinoma' %}
+            <p>Basal cell carcinoma (BCC) is the most common type of skin cancer. It typically arises from the basal
+                cells, which are found in the lowest layer of the epidermis, the outermost layer of the skin. Basal cell
+                carcinoma usually develops on areas of the skin that have been exposed to the sun, such as the face,
+                head, neck, and upper torso.</p>
+            <p>Basal cell carcinoma often appears as a raised, pink or flesh-colored, translucent bump on the skin. It
+                may also present as a shiny or pearly nodule, a non-healing sore, or a scar-like area. BCCs can
+                sometimes ulcerate or bleed, and they may have visible blood vessels or a crusty surface.</p>
+            {% elif prediction == 'nevus' %}
+            <p>moley mole</p>
+            {% endif %}
+        </div>
+    </div>
+    <div class="spacer"></div>
+</div>
 
 {% endblock %}

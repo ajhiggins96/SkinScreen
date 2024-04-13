@@ -1,186 +1,252 @@
 /* home css */
-.top-rectangle {
-    margin: auto;
-    width: 100%;
-    height: 100px;
-    /* Adjust height as needed */
-    text-align: center;
-    padding: 20px;
-}
-
-.how-it-works-container {
-    margin: auto;
+html {
+    font-family: Arial;
+  }
+  
+  .top-rectangle {
+      margin: auto;
+      width: 100%;
+      height: 100px;
+      /* Adjust height as needed */
+      text-align: center;
+      padding: 20px;
+  }
+  
+  .how-it-works-container {
+      margin: auto;
+      display: flex;
+      height: 400px;
+      padding: 10px;
+      text-align: center;
+  }
+  .container {
+      margin: auto;
+      display: flex;
+      height: 500px;
+      padding: 30px;
+  }
+  
+  .box {
+      width: 33.33%;
+      /* Adjust width as needed */
+      background-color: rgba(255, 255, 255, 0.5);
+      /* Transparent background */
+      text-align: center;
+      box-sizing: border-box;
+      padding: 20px;
+      border: 5px;
+  }
+  .boximg {
+      max-width: 100px;
+      max-height: 100px;
+      display: block;
+      margin: auto;
+  }
+  
+  .middle-rectangle-title {
+      margin: auto;
+      width: 100%;
+      height: 200px;
+      /* Adjust height as needed */
+      background-color: rgba(0, 74, 255, 0.1);
+      text-align: center;
+      padding: 70px 0;
+  }
+  
+  .middle-rectangle {
+      margin: auto;
+      width: 100%;
+      height: 300px;
+      /* Adjust height as needed */
+      background-color: rgba(0, 74, 255, 0.1);
+      text-align: center;
+      padding: 70px 0;
+  }
+  
+  .why-start-container {
+      display: flex;
+      padding: 5px;
+      /* Use flexbox for layout */
+  }
+  /* CSS for individual boxes */
+  .why-start-box1 {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+  
+  }
+  .why-start-box2 {
+      border-radius: 50px;
+      width: 55%;
+      text-align: left;
+      /* Each box occupies 1/2 of the container */
+      padding: 30px;
+      border: 1px #ccc;
+      background-color: rgba(239, 249, 255);
+  }
+  .why-start-box3 {
+      width: 5%;
+      padding: 10px;
+  }
+  .contact-container {
+      margin: auto;
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  .start-your {
+      border-radius: 50px;
+      width: 90%;
+      text-align: left;
+      /* Each box occupies 1/2 of the container */
+      padding: 30px;
+      border: 1px #ccc;
+      background-color: rgba(239, 249, 255);}
+  /* classifier css */
+  
+  .expand-more-info {
+      height: auto;
+      vertical-align: top;
+      text-align: center;
+  }
+  
+  .rec-container {
+      height: 150px;
+      justify-content: center;
+      /* Horizontally center content */
+      align-items: center;
+      /* Vertically center content */
+      background-color: rgba(239, 249, 255);
+  }
+  .top-container {
+      display: flex;
+      justify-content:space-around;
+      height:450px;
+  }
+  .skinscreen {
+    width: auto;
+    max-width: 100%;
+    height:auto;
     display: flex;
-    height: 400px;
-    padding: 10px;
-    text-align: center;
-}
-
-.container {
-    margin: auto;
-    display: flex;
-    height: 500px;
-    padding: 30px;
-}
-
-.box {
-    width: 33.33%;
-    /* Adjust width as needed */
-    background-color: rgba(255, 255, 255, 0.5);
-    /* Transparent background */
-    text-align: center;
-    box-sizing: border-box;
-    padding: 20px;
-    border: 5px;
-}
-.boximg {
-    max-width: 100px;
-    max-height: 100px;
-    display: block;
-    margin: auto;
-}
-
-.middle-rectangle-title {
-    margin: auto;
-    width: 100%;
-    height: 200px;
-    /* Adjust height as needed */
-    background-color: rgba(0, 74, 255, 0.1);
-    text-align: center;
-    padding: 70px 0;
-}
-
-.middle-rectangle {
-    margin: auto;
-    width: 100%;
-    height: 300px;
-    /* Adjust height as needed */
-    background-color: rgba(0, 74, 255, 0.1);
-    text-align: center;
-    padding: 70px 0;
-}
-
-.why-start-container {
-    display: flex;
-    /* Use flexbox for layout */
-}
-
-/* CSS for individual boxes */
-.why-start-box {
-    width: 50%;
-    /* Each box occupies 1/2 of the container */
-    padding: 30px;
-    box-sizing: border-box;
-    border: 1px #ccc;
-    background-color: rgba(239, 249, 255);
-}
-.contact-container {
-    margin: auto;
-    height: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* classifier css */
-.top-container {
-    height: auto;
-    display: inline-block;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-    background-color: rgba(239, 249, 255);
-    padding: 25px;
-}
-.expand-more-info {
-    height: auto;
-}
-
-.rec-container {
-    height: 150px;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-    background-color: rgba(239, 249, 255);
-}
-
-.title-container {
-    display: flex;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-    background-color: rgba(239, 249, 255);
-}
-
-.message-container {
-    display: flex;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-    background-color: rgba(239, 249, 255);
-    text-align: center;
-}
-
-.black-box {
-    border: 2px solid black;
-    /* Border style */
-    padding: 10px;
-    /* Padding inside the box */
-    background-color: white;
-    /* Background color */
-    color: black;
-    /* Text color */
-    width: fit-content;
-    /* Adjust width based on content */
-}
-
-.contact-container {
-    height: 200px;
-    padding: 20px;
-    text-align: center;
-}
-
-.text-container {
-    padding: 10px;
-    width: 75%;
-    margin: 0;
-    text-align: center;
-}
-
-.center {
-    display: flex;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-}
-
-.full-container {
-    display: flex;
-    justify-content: center;
-    /* Horizontally center content */
-    align-items: center;
-    /* Vertically center content */
-    margin: auto;
-    display: flex;
-    height: 500px;
-    padding: 30px;
-}
-
-.container-25 {
-    width: 35%;
-    /* 25% width */
-    padding: 20px;
-    /* Example padding */
-}
-
-.container-75 {
-    text-align: left;
-    width: 65%;
-    /* 75% width */
-    padding: 20px;
-    /* Example padding */
-}
+  }
+  
+  .title-container {
+      width: 70%;
+      height:100%;
+      box-sizing: border-box;
+      justify-content: center;
+      text-align:center;
+      background-color: #F8F8F8;
+      margin: 150;
+      padding: 50px;
+  }
+  
+  .top-spacer {
+      height:100%;
+      width: 100px;
+  }
+  .message-container {
+      display: flex;
+      justify-content: center;
+      /* Horizontally center content */
+      align-items: center;
+      /* Vertically center content */
+      background-color: rgba(239, 249, 255);
+      text-align: center;
+      border-radius: 200px;
+  }
+  
+  .black-box {
+      border: 2px solid black;
+      /* Border style */
+      padding: 5px;
+      /* Padding inside the box */
+      background-color:#e5e9e0;
+      /* Background color */
+      color: black;
+      /* Text color */
+      width: fit-content;
+      /* Adjust width based on content */
+  }
+  
+  .contact-container {
+      height: 200px;
+      padding: 20px;
+      text-align: center;
+  }
+  
+  .text-container {
+      padding: 10px;
+      width: 75%;
+      margin: 0;
+      text-align: center;
+  }
+  
+  .center {
+      display: flex;
+      justify-content: center;
+      /* Horizontally center content */
+      align-items: center;
+      /* Vertically center content */
+  }
+  
+  .full-container {
+      display: flex;
+      justify-content: center;
+      /* Horizontally center content */
+      /* Vertically center content */
+      margin: 10px;
+      height: 500px;
+  }
+  
+  .container-20 {
+      width: 33%;
+      /* 25% width */
+      padding: 10px;
+      background-color:#e5e9e0;
+      border-radius: 100px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .container-40-1 {
+      height:100%;
+      width: 30%;
+      /* 75% width */
+      padding: 20px;
+      background-color:#e5e9e0;
+      border-radius: 100px;
+      text-align: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      /* Example padding */
+  }
+  .container-40-2 {
+      position: relative;
+      width: 30%;
+      height: 100%;
+      /* 75% width */
+      padding: 20px;
+      background-color:#e5e9e0;
+      border-radius: 100px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .spacer {
+      height:100%;
+      width: 3%;
+  }
+  .container-20:hover {
+    transform: translateY(-5px);
+  }
+  .container-40-1:hover {
+    transform: translateY(-5px);
+  }
+  .container-40-2:hover {
+    transform: translateY(-5px);
+  }
+  .toned-down-image {
+      filter: brightness(70%); /* Adjust the percentage to decrease brightness */
+  }
+  
