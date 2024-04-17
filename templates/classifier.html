@@ -4,70 +4,244 @@
 
 {% block content %}
 
+<header class="w3-display-container w3-wide">
+
+  <img class="w3-image" src="static/media/lake.jpg" alt="test" width="1800" height="1800">
+
+  <div class="w3-display-left w3-padding-large">
+    <h1 class="w3-jumbo w3-text-white">SkinScreen</h1>
+    <h3 class="w3-text-white w3-hide-small"><b>Start Your Skin Health Journey With Us</b></h3>
+  </div>
+</header>
+
+<script type="text/javascript">
+  function DisplayText() {
+    var x = document.getElementById("hiddenText");
+    x.style.display = "block";
+  };
+</script>
+<div><br><br></div>
 <div class="top-container">
-    <div class="top-spacer"></div>
-    <div class="skinscreen">
-        <img src="static/media/beach.jpeg" alt="beach" class="toned-down-image">
+  <div class="top-spacer"></div>
+  <div class="skinscreen">
+    <img src="static/media/beach.jpeg" alt="beach" class="toned-down-image">
+  </div>
+  <div class="title-container">
+    <h1 style="font-size: 50px">The first step to taking charge of your skin health</h1>
+    <h3><i>Sunscreen is a preventative first step to help you take care of your skin health.
+        <br><br>
+        SkinScreen works in the same way - we're here to help you take care of your skin
+        health by helping you become better informed about your skin concern.
+        <br><br>
+        However, you should also always visit a doctor if you have a serious skin concern.
+      </i></h3>
+  </div>
+  <div class="top-spacer"></div>
+</div>
+
+<div><br><br></div>
+
+<div class="full-container">
+  <div class="spacer"></div>
+  <div class="container-20">
+    <h3><br>1) Upload an Image or Take a New One</h3>
+    <div>
+      <br><br><br><br>
+      <form method="POST" action="/predict/" enctype="multipart/form-data">
+        <div>
+          <label for="upload">Upload an image:</label>
+          <input type="file" id="upload" name="file" accept="image/*">
+        </div>
+        <input type="submit" value="Submit">
+      </form>
     </div>
-    <div class="title-container">
-        <h1 style="font-size: 50px;">Start Your Skin Health Journey With Us<h1>
-                <h3><i>Sunscreen is a preventative first step to help you take care of your skin health.
-                        </br></br>SkinScreen works in the same way - we’re here to help you take care of your skin
-                        health by helping you become better informed about your skin concern. </br></br>However, you
-                        should also always visit a doctor if you have a serious skin concern.</i></h3>
+  </div>
+  <div class="spacer"></div>
+  <div class="container-40-1">
+
+    <div>
+      <h3 style="justify-content: center"><br>2) Review Your Results</h3><br><br><br>
+      <div class="black-box" style="text-align:center;">
+        {% if prediction %}
+        <p style="align-items: center"><b>Potential Classification: </b>{{ prediction }} <br><br><b>SkinScreen
+            Prediction Factor (SPF): </b> {{ confidence }}% </p>
+        {% else %}
+        <p style="text-align: center">Submit an image to see your results.</p>
+        {% endif %}
+      </div>
     </div>
-    <div class="top-spacer"></div>
+  </div>
+  <div class="spacer"></div>
+  <div class="container-40-2">
+    <div class="expand-more-info">
+      <h3><br>3) More information about your results</h3>
+      {% if not prediction %}
+      <p>Submit an image to see your results.</p>
+      {% elif prediction == 'basal cell carcinoma' %}
+      <p>Basal cell carcinoma (BCC) is the most common type of skin cancer. It typically arises from the basal
+        cells, which are found in the lowest layer of the epidermis, the outermost layer of the skin. Basal cell
+        carcinoma usually develops on areas of the skin that have been exposed to the sun, such as the face,
+        head, neck, and upper torso.</p>
+      <p>Basal cell carcinoma often appears as a raised, pink or flesh-colored, translucent bump on the skin. It
+        may also present as a shiny or pearly nodule, a non-healing sore, or a scar-like area. BCCs can
+        sometimes ulcerate or bleed, and they may have visible blood vessels or a crusty surface.</p>
+      {% elif prediction == 'actinic keratosis' %}
+      <p>Actinic keratosis (AK), also known as solar keratosis, is a rough, scaly patch on the skin that develops from
+        years of exposure to the sun's ultraviolet (UV) rays. It is considered a precancerous condition because if left
+        untreated, it can develop into skin cancer, most commonly squamous cell carcinoma.</p>
+      <p>Actinic keratoses typically appear on areas of the skin that are frequently exposed to the sun, such as the
+        face, ears, neck, scalp, chest, backs of hands, and forearms. They often start as small, rough, red or pink
+        patches that may feel dry or rough like sandpaper. Over time, they can become raised, thicker, and more
+        noticeable.</p>
+      {% elif prediction == 'dermatofibroma' %}
+      <p>Dermatofibroma, also known as benign fibrous histiocytoma, is a common benign skin growth. It typically
+        presents as a firm, raised nodule on the skin that is often brownish or reddish in color. Dermatofibromas
+        usually develop on the legs, although they can occur on any part of the body.</p>
+      <p>These skin growths are thought to arise from fibroblasts, which are cells that produce connective tissue in the
+        skin. The exact cause of dermatofibromas is not well understood, but they often occur in response to minor
+        trauma or injury to the skin, such as insect bites or scratches.</p>
+      {% elif prediction == 'keratosis' %}
+      <p>"Keratosis" is a general term used to describe a group of skin conditions characterized by the thickening of
+        the outer layer of the skin (epidermis). These conditions typically result in the formation of rough, scaly
+        patches or growths on the skin.</p>
+      <p>Treatment for keratosis depends on the specific type and severity of the condition. It may include topical
+        medications, cryotherapy (freezing), chemical peels, laser therapy, or surgical removal. It's important to
+        consult a dermatologist for an accurate diagnosis and appropriate treatment plan for any skin condition.</p>
+      {% elif prediction == 'melanoma' %}
+      <p>Melanoma is a type of skin cancer that develops from the pigment-producing cells called melanocytes.
+        Melanocytes are responsible for giving color to the skin and are found in the epidermis, the outermost layer of
+        the skin. Melanoma can also occur in other parts of the body where melanocytes are present, such as the eyes,
+        mucous membranes, and internal organs, although skin melanoma is the most common type.</p>
+      <p>Melanoma typically arises from abnormal or uncontrolled growth of melanocytes, often triggered by exposure to
+        ultraviolet (UV) radiation from sunlight or tanning beds. However, it can also develop in areas of the skin that
+        are not regularly exposed to the sun. Melanoma is often characterized by changes in the size, shape, color, or
+        texture of existing moles, or the appearance of new pigmented lesions on the skin.</p>
+      {% elif prediction == 'nevus' %}
+      <p>A nevus, commonly known as a mole, is a benign (non-cancerous) growth on the skin. Moles are composed of
+        melanocytes, the pigment-producing cells of the skin, and they can appear anywhere on the body. Most moles are
+        harmless and do not require treatment, but in some cases, they may be surgically removed if they are causing
+        symptoms or if there are concerns about their appearance.</p>
+      <p>While most moles are harmless, it's important to monitor them for changes in size, shape, color, or texture, as
+        these changes could indicate melanoma or another type of skin cancer. If you notice any suspicious changes in a
+        mole, such as asymmetry, irregular borders, uneven coloration, or evolving characteristics, it's essential to
+        consult a dermatologist for evaluation and appropriate management. Additionally, regular skin examinations by a
+        healthcare professional are recommended, especially for individuals with a history of significant sun exposure
+        or a personal or family history of skin cancer.</p>
+      {% elif prediction == 'squamous cell carcinoma' %}
+      <p>Squamous cell carcinoma (SCC) is a common type of skin cancer that arises from the squamous cells, which are
+        flat, thin cells that make up the outermost layer of the skin (epidermis). SCC typically develops on areas of
+        the skin that have been exposed to the sun, such as the face, ears, neck, scalp, arms, and hands. However, it
+        can also occur on mucous membranes, such as the lips, mouth, genitals, and anus, as well as on scars or chronic
+        wounds.</p>
+      <p>Squamous cell carcinoma usually appears as a firm, red nodule or a flat lesion with a scaly or crusty surface.
+        It may grow quickly and can sometimes become tender or painful. SCC has the potential to spread (metastasize) to
+        other parts of the body, especially if left untreated. While it is less aggressive than melanoma, SCC can still
+        cause significant morbidity and mortality if it invades surrounding tissues or metastasizes to distant organs.
+      </p>
+
+      {% elif prediction == 'nevus' %}
+      <p>A nevus, commonly known as a mole, is a benign (non-cancerous) growth on the skin. Moles are composed of
+        melanocytes, the pigment-producing cells of the skin, and they can appear anywhere on the body. Most moles are
+        harmless and do not require treatment, but in some cases, they may be surgically removed if they are causing
+        symptoms or if there are concerns about their appearance.</p>
+      <p>While most moles are harmless, it's important to monitor them for changes in size, shape, color, or texture, as
+        these changes could indicate melanoma or another type of skin cancer. If you notice any suspicious changes in a
+        mole, such as asymmetry, irregular borders, uneven coloration, or evolving characteristics, it's essential to
+        consult a dermatologist for evaluation and appropriate management. Additionally, regular skin examinations by a
+        healthcare professional are recommended, especially for individuals with a history of significant sun exposure
+        or a personal or family history of skin cancer.</p>
+      {% elif prediction == 'squamous cell carcinoma' %}
+      <p>Squamous cell carcinoma (SCC) is a common type of skin cancer that arises from the squamous cells, which are
+        flat, thin cells that make up the outermost layer of the skin (epidermis). SCC typically develops on areas of
+        the skin that have been exposed to the sun, such as the face, ears, neck, scalp, arms, and hands. However, it
+        can also occur on mucous membranes, such as the lips, mouth, genitals, and anus, as well as on scars or chronic
+        wounds.</p>
+      <p>Squamous cell carcinoma usually appears as a firm, red nodule or a flat lesion with a scaly or crusty surface.
+        It may grow quickly and can sometimes become tender or painful. SCC has the potential to spread (metastasize) to
+        other parts of the body, especially if left untreated. While it is less aggressive than melanoma, SCC can still
+        cause significant morbidity and mortality if it invades surrounding tissues or metastasizes to distant organs.
+      </p>
+      {% elif prediction == 'vascular skin' %}
+      <p>Vascular skin refers to skin that has visible blood vessels or vascular structures near the surface. This can
+        manifest in various ways, including redness, visible veins, and vascular lesions.</p>
+      <p>Treatment options for vascular skin conditions depend on the specific condition and its severity. They may
+        include laser therapy, sclerotherapy (injection of a solution into the blood vessel to shrink it), topical
+        medications, or surgical removal. It's important to consult a dermatologist or healthcare provider for an
+        accurate diagnosis and appropriate treatment plan for any vascular skin concerns.</p>
+      {% else %}
+      <p>Our model is unable to classify this skin concern. We would highly recommend checking out our FAQs page for
+        best practices when taking a picture, and if, after a few tries, you are still getting an unknown
+        classification, you should visit a dermatologist.</p>
+      {% endif %}
+
+    </div>
+  </div>
+  <div class="spacer"></div>
 </div>
 <div></br></br></div>
-<div class="full-container">
-    <div class="spacer"></div>
-    <div class="container-20">
-        <h3></br>1) Upload an Image or Take a New One</h3>
+<div class="rec-container">
 
+  <div class="top-spacer"></div>
+  <div class="doctor">
+    <img src="static/media/doctor.png">
+  </div>
 
-        <div>
-            </br></br></br></br>
-            <form method="POST" action="/predict/" enctype="multipart/form-data">
-                <div>
-                    <label for="upload">Upload an image:</label>
-                    <input type="file" id="upload" name="file" accept="image/*">
-                </div>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+  <div class="bundle">
+    <div class="zip-text">
+      <h2>Looking for a hospital near you?</br></br></h2>
+      <p>Enter your zipcode to find hospitals in your area</br></p>
+      <input type="text" id="userInput" placeholder="Enter zipcode here">
+      <!-- Button to trigger displaying text -->
+      <button onclick="DisplayText()">Submit</button>
 
+      <div></br></br>You'll find the Hospital Rating, according to <a href="https://health.usnews.com/best-hospitals">US
+          News</a>, and the distance (in miles) from your zipcode. </div>
     </div>
-    <div class="spacer"></div>
-    <div class="container-40-1">
 
-        <div>
-            <h3 style="justify-content: center"></br>2) Review Your Results</h3></br></br></br>
-            <div class="black-box" {% if prediction %} <p style="text-align: center">{{ prediction }} <br />SkinScreen
-                Prediction Factor (SPF): {{ confidence }}% </p>
-                {% else %}
-                <p style="text-align: center">Submit an image to see your results.</p>
-                {% endif %}
-            </div>
-        </div>
+    <div class="table-container">
+      <div><br><br><br></div>
+      <div id="hiddenText">
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: center">
+              <th>Hospital Name</th>
+              <th>Rating</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>Alta Bates Summit Medical Center-Berkeley</td>
+              <td>3</td>
+              <td>0.30</td>
+            </tr>
+            <tr>
+              <td>Alta Bates Summit Medical Center-Oakland</td>
+              <td>1</td>
+              <td>1.51</td>
+            </tr>
+            <tr>
+              <td>Highland Hospital</td>
+              <td>2</td>
+              <td>4.07</td>
+            </tr>
+            <tr>
+              <td>California Pacific Medical Center</td>
+              <td>2</td>
+              <td>12.91</td>
+            </tr>
+            <tr>
+              <td>Kaiser Permanente San Francisco Medical Center</td>
+              <td>5</td>
+              <td>14.13</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="top-spacer"></div>
     </div>
-    <div class="spacer"></div>
-    <div class="container-40-2">
-        <div class="expand-more-info">
-            <h3></br>3) Find more information about your results</h3>
-            {% if prediction == 'basal cell carcinoma' %}
-            <p>Basal cell carcinoma (BCC) is the most common type of skin cancer. It typically arises from the basal
-                cells, which are found in the lowest layer of the epidermis, the outermost layer of the skin. Basal cell
-                carcinoma usually develops on areas of the skin that have been exposed to the sun, such as the face,
-                head, neck, and upper torso.</p>
-            <p>Basal cell carcinoma often appears as a raised, pink or flesh-colored, translucent bump on the skin. It
-                may also present as a shiny or pearly nodule, a non-healing sore, or a scar-like area. BCCs can
-                sometimes ulcerate or bleed, and they may have visible blood vessels or a crusty surface.</p>
-            {% elif prediction == 'nevus' %}
-            <p>moley mole</p>
-            {% endif %}
-        </div>
-    </div>
-    <div class="spacer"></div>
+  </div>
+  <div class="top-spacer"></div>
 </div>
-
 {% endblock %}

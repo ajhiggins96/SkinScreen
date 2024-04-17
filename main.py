@@ -13,7 +13,7 @@ app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 app.mount('/static/', StaticFiles(directory='static/'), name='static')
 
-SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-10-20-45-06-706"
+SAGEMAKER_ENDPOINT_NAME = "isic-resnet-v2-finetune-2024-03-12-18-5-2024-04-17-02-54-21-616"
 sagemaker_runtime = boto3.Session().client('sagemaker-runtime')
 
 
@@ -93,25 +93,25 @@ async def predict_api(file: UploadFile | None = None):
     # Function to fetch and process CSV data
 
 # Define a FastAPI endpoint to process CSV data
-@app.post("/process-text-input")
-async def process_text_input(text_input:str):
-    try:
-        # Fetch CSV data from GitHub
-        csv_url = 'data/cancer_df_new_coordinates.csv'
-        response = requests.get(csv_url)
-        response.raise_for_status()  # Raise an exception for HTTP errors
+# @app.post("/process-text-input")
+# async def process_text_input(text_input:str):
+#     try:
+#         # Fetch CSV data from GitHub
+#         csv_url = 'data/cancer_df_new_coordinates.csv'
+#         response = requests.get(csv_url)
+#         response.raise_for_status()  # Raise an exception for HTTP errors
 
-        # Read CSV data
-        csv_data = StringIO(response.text)
-        csv_reader = csv.reader(csv_data)
+#         # Read CSV data
+#         csv_data = StringIO(response.text)
+#         csv_reader = csv.reader(csv_data)
 
-        # Process CSV data based on text input
-        processed_data = []
-        for row in csv_reader:
-            # Example processing: filter rows containing the text input
-            if text_input in row:
-                processed_data.append(row)
+#         # Process CSV data based on text input
+#         processed_data = []
+#         for row in csv_reader:
+#             # Example processing: filter rows containing the text input
+#             if text_input in row:
+#                 processed_data.append(row)
 
-        return {"processed_data": processed_data}
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+#         return {"processed_data": processed_data}
+#     except Exception as e:
+#         raise HTTPException(status_code=500, detail=str(e))
